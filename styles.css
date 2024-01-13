@@ -29,6 +29,11 @@ body {
 	width: 10px;
 	border: 2px solid white;
     transition: 300ms;
+    background-color: transparent;
+}
+
+.circle.active {
+    background-color: white;
 }
 
 .circle:hover {

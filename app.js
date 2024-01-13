@@ -5,15 +5,21 @@ const slides = document.getElementsByClassName('slide');
 function handleRightClick() {
     const nextIndex = activeIndex + 1 <= slides.length - 1 ? activeIndex + 1 : 0;
 
-    const currentGroup = document.querySelector(`[data-index="${activeIndex}"]`);
-    const nextGroup = document.querySelector(`[data-index="${nextIndex}"]`);
+    const currentSlide = document.querySelector(`[data-index="${activeIndex}"]`);
+    const nextSlide = document.querySelector(`[data-index="${nextIndex}"]`);
 
-    currentGroup.dataset.status = 'after';
+    currentSlide.dataset.status = 'after';
 
-    nextGroup.dataset.status = 'becoming-active-from-before';
+    nextSlide.dataset.status = 'becoming-active-from-before';
+
+    document.querySelectorAll('.circle').forEach(dot => {
+        dot.classList.remove('active');
+    });
+    
+    document.querySelector(`.circle:nth-child(${nextIndex + 1})`).classList.add('active');
 
     setTimeout(() => {
-        nextGroup.dataset.status = 'active';
+        nextSlide.dataset.status = 'active';
         activeIndex = nextIndex;
     });
 }
@@ -21,19 +27,40 @@ function handleRightClick() {
 function handleLeftClick() {
     const nextIndex = activeIndex - 1 >= 0 ? activeIndex - 1 : slides.length - 1;
 
-    const currentGroup = document.querySelector(`[data-index="${activeIndex}"]`);
-    const nextGroup = document.querySelector(`[data-index="${nextIndex}"]`);
+    const currentSlide = document.querySelector(`[data-index="${activeIndex}"]`);
+    const nextSlide = document.querySelector(`[data-index="${nextIndex}"]`);
 
-    currentGroup.dataset.status = 'before';
+    currentSlide.dataset.status = 'before';
 
-    nextGroup.dataset.status = 'becoming-active-from-after';
+    nextSlide.dataset.status = 'becoming-active-from-after';
+
+    document.querySelectorAll('.circle').forEach(dot => {
+        dot.classList.remove('active');
+    });
+
+    document.querySelector(`.circle:nth-child(${nextIndex + 1})`).classList.add('active');
 
     setTimeout(() => {
-        nextGroup.dataset.status = 'active';
+        nextSlide.dataset.status = 'active';
         activeIndex = nextIndex;
     });
 }
 
-function updateSlide(index) {
-    
+function displayIndex(index) {
+    const currentSlide = document.querySelector(`[data-index="${activeIndex}"]`);
+    const nextSlide = document.querySelector(`[data-index="${index}"]`);
+
+    currentSlide.dataset.status = 'before';
+    nextSlide.dataset.status = 'becoming-active-from-after';
+
+    document.querySelectorAll('.circle').forEach(dot => {
+        dot.classList.remove('active');
+    });
+
+    document.querySelector(`.circle:nth-child(${index + 1})`).classList.add('active');
+
+    setTimeout(() => {
+        nextSlide.dataset.status = 'active';
+        activeIndex = index;
+    })
 }

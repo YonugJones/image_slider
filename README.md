@@ -1,1 +1,1 @@
-# image_slider
+image slider with animations
