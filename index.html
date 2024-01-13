@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slider</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+    <script src="https://kit.fontawesome.com/a2df790e0c.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="slider">
+        <div class="picture-frame">
+            <div class="slide one" data-index="0" data-status="active"></div>
+            <div class="slide two" data-index="1" data-status="unknown"></div>
+            <div class="slide three" data-index="2" data-status="unknown"></div>
+            <div class="slide four" data-index="3" data-status="unknown"></div>
+            <div class="slide five" data-index="4" data-status="unknown"></div>
+            <div class="slide six" data-index="5" data-status="unknown"></div>
+            <div class="slide seven" data-index="6" data-status="unknown"></div>
+            <div class="slide eight" data-index="7" data-status="unknown"></div>
+            <div class="slide nine" data-index="8" data-status="unknown"></div>
+            <div class="slide ten" data-index="9" data-status="unknown"></div>
+        </div>
+        <div class="nav-dots">
+            <div class="circle first"></div>
+            <div class="circle second"></div>
+            <div class="circle third"></div>
+            <div class="circle fourth"></div>
+            <div class="circle fifth"></div>
+            <div class="circle sixth"></div>
+            <div class="circle seventh"></div>
+            <div class="circle eighth"></div>
+            <div class="circle ninth"></div>
+            <div class="circle tenth"></div>
+        </div>
+        <div class="slider-buttons">
+            <button id="back" onclick="handleLeftClick()">
+                <i class="fa-solid fa-left-long"></i>
+            </button>
+            <button id="forward" onclick="handleRightClick()">
+                <i class="fa-solid fa-right-long"></i>
+            </button>
+        </div>
+    </div>    
+</body>
+</html>
