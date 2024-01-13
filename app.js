@@ -64,3 +64,11 @@ function displayIndex(index) {
         activeIndex = index;
     })
 }
+
+function startAutomaticTransition() {
+    setInterval(() => {
+        handleRightClick();
+    }, 5000);
+}
+
+startAutomaticTransition();
